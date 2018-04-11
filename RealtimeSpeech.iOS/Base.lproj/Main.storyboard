@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -27,23 +26,36 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="toggleTransport:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UaP-AD-PxQ"/>
+                                    <action selector="toggleState:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LTl-ZB-vLf"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ADm-Ws-gEr">
+                                <rect key="frame" x="16" y="324" width="288" height="136"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="WUK-Y6-3cG" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="695-Fm-C3i"/>
+                            <constraint firstItem="ADm-Ws-gEr" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="RDO-x9-0uk"/>
+                            <constraint firstItem="ADm-Ws-gEr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="b5n-xM-LQu"/>
+                            <constraint firstItem="ADm-Ws-gEr" firstAttribute="top" secondItem="WUK-Y6-3cG" secondAttribute="bottom" constant="8" id="bX8-Bx-Zrr"/>
                             <constraint firstItem="WUK-Y6-3cG" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="ecb-EU-Ny6"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ADm-Ws-gEr" secondAttribute="bottom" constant="20" id="fxk-dx-XS1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="textView" destination="ADm-Ws-gEr" id="t8v-o7-jy4"/>
                         <outlet property="toggleButton" destination="WUK-Y6-3cG" id="0SK-JF-dUv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="138.75" y="125"/>
         </scene>
     </scenes>
 </document>

@@ -9,12 +9,13 @@
 import UIKit
 
 internal enum TransportState: String {
-    case listen, stop
+    case record, stop, transcribe
     
     internal var next: TransportState {
         switch self {
-        case .listen : return .stop
-        case .stop : return .listen
+        case .record: return .transcribe
+        case .transcribe: return .stop
+        case .stop: return .record
         }
     }
 
@@ -22,18 +23,20 @@ internal enum TransportState: String {
 
 extension TransportState { // Theming
     
-    internal var color: UIColor {
+    internal var primaryColor: UIColor {
         switch self {
-        case .listen : return .red
-        case .stop : return .blue
+        case .record: return .red
+        case .transcribe: return .gray
+        case .stop: return .orange
         }
     }
-    
-    internal func cornerRadius(for width: CGFloat) -> CGFloat {
+
+    internal var secondaryColor: UIColor {
         switch self {
-        case .listen : return width / 2
-        case .stop : return 1
+        case .record: return .darkText
+        case .transcribe: return .orange
+        case .stop: return .darkGray
         }
     }
-    
+
 }

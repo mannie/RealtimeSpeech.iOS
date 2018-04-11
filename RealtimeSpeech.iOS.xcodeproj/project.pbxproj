@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		369725EF207D741F0051016B /* APIs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 369725EE207D741F0051016B /* APIs.plist */; };
+		369725F1207D78D20051016B /* APIs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369725F0207D78D20051016B /* APIs.swift */; };
 		369DF9702074614D00C78741 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369DF96F2074614D00C78741 /* AppDelegate.swift */; };
 		369DF9722074614D00C78741 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369DF9712074614D00C78741 /* ViewController.swift */; };
 		369DF9752074614D00C78741 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 369DF9732074614D00C78741 /* Main.storyboard */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		369725EE207D741F0051016B /* APIs.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = APIs.plist; sourceTree = "<group>"; };
+		369725F0207D78D20051016B /* APIs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIs.swift; sourceTree = "<group>"; };
 		369DF96C2074614D00C78741 /* RealtimeSpeech.iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RealtimeSpeech.iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		369DF96F2074614D00C78741 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		369DF9712074614D00C78741 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +28,7 @@
 		369DF9792074614F00C78741 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		369DF97B2074614F00C78741 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		369DF981207470EF00C78741 /* TransportState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportState.swift; sourceTree = "<group>"; };
+		369DF983207479E900C78741 /* RealtimeSpeech.iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RealtimeSpeech.iOS.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,13 +61,16 @@
 		369DF96E2074614D00C78741 /* RealtimeSpeech.iOS */ = {
 			isa = PBXGroup;
 			children = (
+				369DF983207479E900C78741 /* RealtimeSpeech.iOS.entitlements */,
 				369DF96F2074614D00C78741 /* AppDelegate.swift */,
+				369725F0207D78D20051016B /* APIs.swift */,
 				369DF9712074614D00C78741 /* ViewController.swift */,
 				369DF981207470EF00C78741 /* TransportState.swift */,
 				369DF9732074614D00C78741 /* Main.storyboard */,
 				369DF9762074614F00C78741 /* Assets.xcassets */,
 				369DF9782074614F00C78741 /* LaunchScreen.storyboard */,
 				369DF97B2074614F00C78741 /* Info.plist */,
+				369725EE207D741F0051016B /* APIs.plist */,
 			);
 			path = RealtimeSpeech.iOS;
 			sourceTree = "<group>";
@@ -99,6 +107,11 @@
 				TargetAttributes = {
 					369DF96B2074614D00C78741 = {
 						CreatedOnToolsVersion = 9.3;
+						SystemCapabilities = {
+							com.apple.DataProtection = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -126,6 +139,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				369DF97A2074614F00C78741 /* LaunchScreen.storyboard in Resources */,
+				369725EF207D741F0051016B /* APIs.plist in Resources */,
 				369DF9772074614F00C78741 /* Assets.xcassets in Resources */,
 				369DF9752074614D00C78741 /* Main.storyboard in Resources */,
 			);
@@ -141,6 +155,7 @@
 				369DF9722074614D00C78741 /* ViewController.swift in Sources */,
 				369DF982207470EF00C78741 /* TransportState.swift in Sources */,
 				369DF9702074614D00C78741 /* AppDelegate.swift in Sources */,
+				369725F1207D78D20051016B /* APIs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
