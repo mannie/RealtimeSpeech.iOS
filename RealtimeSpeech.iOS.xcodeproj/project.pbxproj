@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		364098B22080624C0013F992 /* SpeechSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 364098AE208062370013F992 /* SpeechSDK.framework */; };
+		364098B32080624C0013F992 /* SpeechSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 364098AE208062370013F992 /* SpeechSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		369725EF207D741F0051016B /* APIs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 369725EE207D741F0051016B /* APIs.plist */; };
 		369725F1207D78D20051016B /* APIs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369725F0207D78D20051016B /* APIs.swift */; };
 		369DF9702074614D00C78741 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369DF96F2074614D00C78741 /* AppDelegate.swift */; };
@@ -17,7 +19,23 @@
 		369DF982207470EF00C78741 /* TransportState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369DF981207470EF00C78741 /* TransportState.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		364098B42080624C0013F992 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				364098B32080624C0013F992 /* SpeechSDK.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		364098AE208062370013F992 /* SpeechSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpeechSDK.framework; sourceTree = "<group>"; };
+		364098B52080628F0013F992 /* RealtimeSpeech.iOS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RealtimeSpeech.iOS-Bridging-Header.h"; sourceTree = "<group>"; };
 		369725EE207D741F0051016B /* APIs.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = APIs.plist; sourceTree = "<group>"; };
 		369725F0207D78D20051016B /* APIs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIs.swift; sourceTree = "<group>"; };
 		369DF96C2074614D00C78741 /* RealtimeSpeech.iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RealtimeSpeech.iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -36,17 +54,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				364098B22080624C0013F992 /* SpeechSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3691EAD020805AAD00D2C928 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				364098AE208062370013F992 /* SpeechSDK.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		369DF9632074614D00C78741 = {
 			isa = PBXGroup;
 			children = (
 				369DF96E2074614D00C78741 /* RealtimeSpeech.iOS */,
 				369DF96D2074614D00C78741 /* Products */,
+				3691EAD020805AAD00D2C928 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -69,6 +97,7 @@
 				369DF9732074614D00C78741 /* Main.storyboard */,
 				369DF9762074614F00C78741 /* Assets.xcassets */,
 				369DF9782074614F00C78741 /* LaunchScreen.storyboard */,
+				364098B52080628F0013F992 /* RealtimeSpeech.iOS-Bridging-Header.h */,
 				369DF97B2074614F00C78741 /* Info.plist */,
 				369725EE207D741F0051016B /* APIs.plist */,
 			);
@@ -85,6 +114,7 @@
 				369DF9682074614D00C78741 /* Sources */,
 				369DF9692074614D00C78741 /* Frameworks */,
 				369DF96A2074614D00C78741 /* Resources */,
+				364098B42080624C0013F992 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -216,6 +246,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -237,6 +268,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/RealtimeSpeech.iOS/RealtimeSpeech.iOS-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -276,6 +308,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -290,6 +323,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/RealtimeSpeech.iOS/RealtimeSpeech.iOS-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -301,6 +335,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3AMCJ5B2Q4;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/RealtimeSpeech.iOS",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = RealtimeSpeech.iOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -319,6 +358,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3AMCJ5B2Q4;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/RealtimeSpeech.iOS",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = RealtimeSpeech.iOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

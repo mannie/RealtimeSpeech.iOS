@@ -9,12 +9,11 @@
 import UIKit
 
 internal enum TransportState: String {
-    case record, stop, transcribe
+    case record, stop
     
     internal var next: TransportState {
         switch self {
-        case .record: return .transcribe
-        case .transcribe: return .stop
+        case .record: return .stop
         case .stop: return .record
         }
     }
@@ -26,7 +25,6 @@ extension TransportState { // Theming
     internal var primaryColor: UIColor {
         switch self {
         case .record: return .red
-        case .transcribe: return .gray
         case .stop: return .orange
         }
     }
@@ -34,7 +32,6 @@ extension TransportState { // Theming
     internal var secondaryColor: UIColor {
         switch self {
         case .record: return .darkText
-        case .transcribe: return .orange
         case .stop: return .darkGray
         }
     }
