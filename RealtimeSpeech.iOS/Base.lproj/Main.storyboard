@@ -19,18 +19,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="paB-KM-50g">
-                                <rect key="frame" x="22" y="410" width="331" height="88"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="88" id="dYa-7z-JYM"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="eiO-Hk-qLT"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="i1L-wl-nik"/>
-                                </connections>
-                            </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WUK-Y6-3cG">
-                                <rect key="frame" x="121.5" y="145.5" width="132" height="132"/>
+                                <rect key="frame" x="121.5" y="101.5" width="132" height="132"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="132" id="dkN-2d-e2h"/>
                                     <constraint firstAttribute="width" secondItem="WUK-Y6-3cG" secondAttribute="height" multiplier="1:1" id="oNy-y0-k9p"/>
@@ -50,28 +40,48 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="paB-KM-50g">
+                                <rect key="frame" x="28" y="454" width="320" height="88"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="350" id="EwE-o4-Fpj"/>
+                                    <constraint firstAttribute="height" constant="88" id="dYa-7z-JYM"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="eiO-Hk-qLT"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="i1L-wl-nik"/>
+                                </connections>
+                            </pickerView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Gc5-gN-Rx1">
-                                <rect key="frame" x="22" y="506" width="331" height="44"/>
+                                <rect key="frame" x="22" y="550" width="331" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <view alpha="0.25" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jXw-RE-dlm">
+                                <rect key="frame" x="67" y="373" width="240" height="1"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="9i9-8P-Gzx"/>
+                                    <constraint firstAttribute="height" constant="1" id="bm3-Bt-CKp"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Gc5-gN-Rx1" firstAttribute="height" secondItem="ADm-Ws-gEr" secondAttribute="height" id="2b9-ng-adu"/>
-                            <constraint firstItem="paB-KM-50g" firstAttribute="width" secondItem="ADm-Ws-gEr" secondAttribute="width" id="4JO-As-Jhp"/>
-                            <constraint firstItem="WUK-Y6-3cG" firstAttribute="centerX" secondItem="ADm-Ws-gEr" secondAttribute="centerX" id="87g-UJ-ouJ"/>
-                            <constraint firstItem="Gc5-gN-Rx1" firstAttribute="centerX" secondItem="ADm-Ws-gEr" secondAttribute="centerX" id="8M5-Cj-b2G"/>
-                            <constraint firstItem="Gc5-gN-Rx1" firstAttribute="top" secondItem="paB-KM-50g" secondAttribute="bottom" constant="8" id="KZu-h2-ssD"/>
-                            <constraint firstItem="ADm-Ws-gEr" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Kbw-oE-3hl"/>
-                            <constraint firstItem="paB-KM-50g" firstAttribute="top" secondItem="ADm-Ws-gEr" secondAttribute="bottom" constant="44" id="Zrp-5l-elX"/>
-                            <constraint firstItem="ADm-Ws-gEr" firstAttribute="top" secondItem="WUK-Y6-3cG" secondAttribute="bottom" constant="44" id="ckh-oI-Koc"/>
-                            <constraint firstItem="ADm-Ws-gEr" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="dhq-9M-hLg"/>
-                            <constraint firstItem="paB-KM-50g" firstAttribute="leading" secondItem="ADm-Ws-gEr" secondAttribute="leading" id="jal-1Y-hqQ"/>
-                            <constraint firstItem="ADm-Ws-gEr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="22" id="nPK-jl-yYx"/>
-                            <constraint firstItem="Gc5-gN-Rx1" firstAttribute="width" secondItem="ADm-Ws-gEr" secondAttribute="width" id="oTa-tG-Elo"/>
+                            <constraint firstItem="WUK-Y6-3cG" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Cse-k4-ooG"/>
+                            <constraint firstItem="ADm-Ws-gEr" firstAttribute="top" secondItem="WUK-Y6-3cG" secondAttribute="bottom" constant="88" id="ECw-ql-6b6"/>
+                            <constraint firstItem="jXw-RE-dlm" firstAttribute="top" secondItem="ADm-Ws-gEr" secondAttribute="bottom" constant="7.5" id="GzE-09-tJy"/>
+                            <constraint firstItem="Gc5-gN-Rx1" firstAttribute="width" secondItem="ADm-Ws-gEr" secondAttribute="width" id="NUJ-Yx-Xdn"/>
+                            <constraint firstItem="paB-KM-50g" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Pfv-Du-hL9"/>
+                            <constraint firstItem="ADm-Ws-gEr" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="TRP-h6-UJs"/>
+                            <constraint firstItem="ADm-Ws-gEr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="22" id="WYY-35-Hpg"/>
+                            <constraint firstItem="Gc5-gN-Rx1" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Ycg-QO-ckh"/>
+                            <constraint firstItem="Gc5-gN-Rx1" firstAttribute="height" secondItem="ADm-Ws-gEr" secondAttribute="height" id="bn7-60-1TO"/>
+                            <constraint firstItem="jXw-RE-dlm" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="mbK-6l-GvT"/>
+                            <constraint firstItem="Gc5-gN-Rx1" firstAttribute="top" secondItem="paB-KM-50g" secondAttribute="bottom" constant="8" id="rhm-8v-A8k"/>
+                            <constraint firstItem="paB-KM-50g" firstAttribute="top" secondItem="ADm-Ws-gEr" secondAttribute="bottom" constant="88" id="s46-g3-mie"/>
+                            <constraint firstItem="ADm-Ws-gEr" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="u8v-ze-CAw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
