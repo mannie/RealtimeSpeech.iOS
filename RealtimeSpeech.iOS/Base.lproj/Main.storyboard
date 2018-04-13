@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="ipad9_7" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -16,11 +16,21 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="RealtimeSpeech_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="paB-KM-50g">
+                                <rect key="frame" x="22" y="410" width="331" height="88"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="88" id="dYa-7z-JYM"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="eiO-Hk-qLT"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="i1L-wl-nik"/>
+                                </connections>
+                            </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WUK-Y6-3cG">
-                                <rect key="frame" x="318" y="456" width="132" height="132"/>
+                                <rect key="frame" x="121.5" y="145.5" width="132" height="132"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="132" id="dkN-2d-e2h"/>
                                     <constraint firstAttribute="width" secondItem="WUK-Y6-3cG" secondAttribute="height" multiplier="1:1" id="oNy-y0-k9p"/>
@@ -31,7 +41,7 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ADm-Ws-gEr">
-                                <rect key="frame" x="20" y="596" width="728" height="44"/>
+                                <rect key="frame" x="22" y="321.5" width="331" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="Pp7-ok-oT5"/>
@@ -40,14 +50,28 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Gc5-gN-Rx1">
+                                <rect key="frame" x="22" y="506" width="331" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="WUK-Y6-3cG" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="5Ep-ru-Rg9"/>
-                            <constraint firstItem="ADm-Ws-gEr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="W43-6w-ZxB"/>
-                            <constraint firstItem="WUK-Y6-3cG" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="aNp-EQ-gp3"/>
-                            <constraint firstItem="ADm-Ws-gEr" firstAttribute="top" secondItem="WUK-Y6-3cG" secondAttribute="bottom" constant="8" id="jfQ-H6-IGO"/>
-                            <constraint firstItem="ADm-Ws-gEr" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="s37-s6-AYk"/>
+                            <constraint firstItem="Gc5-gN-Rx1" firstAttribute="height" secondItem="ADm-Ws-gEr" secondAttribute="height" id="2b9-ng-adu"/>
+                            <constraint firstItem="paB-KM-50g" firstAttribute="width" secondItem="ADm-Ws-gEr" secondAttribute="width" id="4JO-As-Jhp"/>
+                            <constraint firstItem="WUK-Y6-3cG" firstAttribute="centerX" secondItem="ADm-Ws-gEr" secondAttribute="centerX" id="87g-UJ-ouJ"/>
+                            <constraint firstItem="Gc5-gN-Rx1" firstAttribute="centerX" secondItem="ADm-Ws-gEr" secondAttribute="centerX" id="8M5-Cj-b2G"/>
+                            <constraint firstItem="Gc5-gN-Rx1" firstAttribute="top" secondItem="paB-KM-50g" secondAttribute="bottom" constant="8" id="KZu-h2-ssD"/>
+                            <constraint firstItem="ADm-Ws-gEr" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Kbw-oE-3hl"/>
+                            <constraint firstItem="paB-KM-50g" firstAttribute="top" secondItem="ADm-Ws-gEr" secondAttribute="bottom" constant="44" id="Zrp-5l-elX"/>
+                            <constraint firstItem="ADm-Ws-gEr" firstAttribute="top" secondItem="WUK-Y6-3cG" secondAttribute="bottom" constant="44" id="ckh-oI-Koc"/>
+                            <constraint firstItem="ADm-Ws-gEr" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="dhq-9M-hLg"/>
+                            <constraint firstItem="paB-KM-50g" firstAttribute="leading" secondItem="ADm-Ws-gEr" secondAttribute="leading" id="jal-1Y-hqQ"/>
+                            <constraint firstItem="ADm-Ws-gEr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="22" id="nPK-jl-yYx"/>
+                            <constraint firstItem="Gc5-gN-Rx1" firstAttribute="width" secondItem="ADm-Ws-gEr" secondAttribute="width" id="oTa-tG-Elo"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -59,24 +83,8 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <pickerView contentMode="scaleToFill" id="paB-KM-50g">
-                    <rect key="frame" x="0.0" y="0.0" width="984" height="88"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <connections>
-                        <outlet property="dataSource" destination="BYZ-38-t0r" id="eiO-Hk-qLT"/>
-                        <outlet property="delegate" destination="BYZ-38-t0r" id="i1L-wl-nik"/>
-                    </connections>
-                </pickerView>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" id="Gc5-gN-Rx1">
-                    <rect key="frame" x="0.0" y="0.0" width="984" height="44"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                </textView>
             </objects>
-            <point key="canvasLocation" x="138.28125" y="124.21875"/>
+            <point key="canvasLocation" x="136.875" y="123.59154929577466"/>
         </scene>
     </scenes>
 </document>

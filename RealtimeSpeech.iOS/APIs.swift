@@ -14,7 +14,8 @@ internal struct API {
     
     private static let info = Bundle.main.apis
     internal static let speech = API(key: info["Speech"]?["Key"] ?? "")
-    
+    internal static let translator = API(key: info["Translator"]?["Key"] ?? "")
+
 }
 
 fileprivate extension Bundle {

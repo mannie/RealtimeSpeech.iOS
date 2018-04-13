@@ -7,5 +7,10 @@
 		<key>Key</key>
 		<string></string>
 	</dict>
+	<key>Translator</key>
+	<dict>
+		<key>Key</key>
+		<string></string>
+	</dict>
 </dict>
 </plist>

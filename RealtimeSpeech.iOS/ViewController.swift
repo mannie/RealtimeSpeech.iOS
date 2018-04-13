@@ -53,8 +53,8 @@ internal final class ViewController: UIViewController {
         update(state: currentState.next)
     }
     
-//    fileprivate var languages: [Language] = []
-//    fileprivate var language: Language?
+    fileprivate var languages: [Language] = []
+    fileprivate var language: Language?
     
     private var microphoneSpeechClient: MicrophoneRecognitionClient!
     
@@ -66,11 +66,11 @@ internal final class ViewController: UIViewController {
         textView.textAlignment = .center
         textView.text = ""
         
-//        translatedTextView.isEditable = false
-//        translatedTextView.textAlignment = .center
-//        translatedTextView.text = ""
+        translatedTextView.isEditable = false
+        translatedTextView.textAlignment = .center
+        translatedTextView.text = ""
         
-//        fetchLanguages()
+        fetchLanguages()
         
         microphoneSpeechClient = SpeechRecognitionServiceFactory.createMicrophoneClient(.longDictation, withLanguage: "en-us", withKey: API.speech.key, with: self)
     }
@@ -80,6 +80,10 @@ internal final class ViewController: UIViewController {
 extension ViewController: SpeechRecognitionProtocol {
     
     func onPartialResponseReceived(_ partialResult: String!) {
+        if let language = language {
+            translate(text: partialResult, to: language)
+        }
+        
         DispatchQueue.main.async {
             self.textView.text = partialResult
         }
@@ -96,98 +100,105 @@ extension ViewController: SpeechRecognitionProtocol {
 
 }
 
-//fileprivate extension ViewController {
-//
-//    struct Language {
-//        let key: String
-//        let name: String
-//    }
-//
-//    fileprivate func fetchLanguages() {
-//        guard let url = URL(string: "https://dev.microsofttranslator.com/languages?api-version=1.0") else {
-//            fatalError("Invalid streaming URL")
-//        }
-//
-//        var request = URLRequest(url: url)
-//        request.setValue("application/json", forHTTPHeaderField: "Accept")
-//        request.setValue(API.speech.key, forHTTPHeaderField: "Ocp-Apim-Subscription-Key")
-//
-//        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-//            guard
-//                let data = data,
-//                let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String:Any],
-//            let languages = json?["text"] as? [String:[String:String]] else {
-//                    return
-//            }
-//
-//            self.languages = languages.keys.compactMap {
-//                guard let name = languages[$0]?["name"] else {
-//                    return nil
-//                }
-//                return Language(key: $0, name: name)
-//            }.sorted { $0.name < $1.name }
-//
-//            DispatchQueue.main.async {
-//                self.language = self.languages.first
-//                self.languagePicker.reloadAllComponents()
-//            }
-//        }
-//        task.resume()
-//    }
+fileprivate extension ViewController {
 
-//    fileprivate func translate(text: String, to language: Language) {
-//        guard let url = URL(string: "https://api.microsofttranslator.com/V2/Http.svc/Translate?to=\(language.key)&text=\(text.sanitizedForQuery)") else {
-//            fatalError("Invalid streaming URL")
-//        }
-//
-//        var request = URLRequest(url: url)
-//        request.setValue("application/json", forHTTPHeaderField: "Accept")
-//        request.setValue("582d6e4efafa434ca32e74d6c4de72f9", forHTTPHeaderField: "Ocp-Apim-Subscription-Key")
-//
-//        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-//            guard let data = data, let json = try? JSONSerialization.jsonObject(with: data, options: []) else {
-//                return
-//            }
-//
-//            DispatchQueue.main.async {
-//                self.translatedTextView.text = ""
-//            }
-//
-//            self.update(state: .stop)
-//        }
-//        task.resume()
-//    }
-//
-//}
+    struct Language {
+        let key: String
+        let name: String
+    }
 
-//extension ViewController: UIPickerViewDataSource {
-//
-//    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-//        return 1
-//    }
-//
-//    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-//        return languages.count
-//    }
-//
-//}
+    fileprivate func fetchLanguages() {
+        guard let url = URL(string: "https://dev.microsofttranslator.com/languages?api-version=1.0&scope=text") else {
+            fatalError("Invalid streaming URL")
+        }
 
-//extension ViewController: UIPickerViewDelegate {
-//
-//    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-//        language = languages[row]
-//    }
-//
-//    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-//        return self.languages[row].name
-//    }
-//
-//}
+        var request = URLRequest(url: url)
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        request.setValue(API.speech.key, forHTTPHeaderField: "Ocp-Apim-Subscription-Key")
 
-//extension String {
-//
-//    var sanitizedForQuery: String {
-//        return trimmingCharacters(in: .whitespacesAndNewlines).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
-//    }
-//
-//}
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            guard
+                let data = data,
+                let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String:Any],
+                let languages = json?["text"] as? [String:[String:String]] else {
+                    return
+            }
+
+            self.languages = languages.keys.compactMap {
+                guard let name = languages[$0]?["name"] else {
+                    return nil
+                }
+                return Language(key: $0, name: name)
+            }.sorted { $0.name < $1.name }
+
+            DispatchQueue.main.async {
+                self.language = self.languages.first
+                self.languagePicker.reloadAllComponents()
+            }
+        }
+        task.resume()
+    }
+
+    fileprivate func translate(text: String, to language: Language) {
+        guard let url = URL(string: "https://api.microsofttranslator.com/V2/Http.svc/Translate?to=\(language.key)&text=\(text.sanitizedForQuery)") else {
+            fatalError("Invalid streaming URL")
+        }
+
+        var request = URLRequest(url: url)
+        request.setValue(API.translator.key, forHTTPHeaderField: "Ocp-Apim-Subscription-Key")
+
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            guard let data = data else {
+                return
+            }
+            
+            let xml = XMLParser(data: data)
+            xml.delegate = self
+            xml.parse()
+        }
+        task.resume()
+    }
+
+}
+
+extension ViewController: XMLParserDelegate {
+    
+    func parser(_ parser: XMLParser, foundCharacters string: String) {
+        DispatchQueue.main.async {
+            self.translatedTextView.text = string
+        }
+    }
+    
+}
+
+extension ViewController: UIPickerViewDataSource {
+
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return languages.count
+    }
+
+}
+
+extension ViewController: UIPickerViewDelegate {
+
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        language = languages[row]
+    }
+
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return self.languages[row].name
+    }
+
+}
+
+extension String {
+
+    var sanitizedForQuery: String {
+        return trimmingCharacters(in: .whitespacesAndNewlines).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+    }
+
+}
